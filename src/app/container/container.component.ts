@@ -8,20 +8,24 @@ import { Alunos } from '../services/services.interface'
   styleUrls: ['./container.component.scss']
 })
 export class ContainerComponent implements OnInit {
+  
+  
   loading: boolean = true;
-
+  public alunos: Alunos[];
+  
   constructor( private http: ObterAlunosService) { }
 
-  public alunos: Array<Alunos>;
+ 
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {  
+
     this.http.obterAlunos().subscribe(response => {
-
+      
       this.alunos = response;
       this.loading = false;
       console.log(this.alunos)
-      })
+     
+    })
 
   }
 
