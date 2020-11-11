@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ObterAlunosService } from '../services/obter-alunos.service'
+import { Alunos } from '../services/services.interface'
 
 @Component({
   selector: 'app-container',
@@ -8,11 +10,18 @@ import { Component, OnInit } from '@angular/core';
 export class ContainerComponent implements OnInit {
   loading: boolean = true;
 
-  constructor() { }
+  constructor( private http: ObterAlunosService) { }
+
+  public alunos: Array<Alunos>;
 
   ngOnInit(): void {
     
+    this.http.obterAlunos().subscribe(response => {
 
+      this.alunos = response;
+      this.loading = false;
+      console.log(this.alunos)
+      })
 
   }
 
