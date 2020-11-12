@@ -6,7 +6,7 @@
 
 
 <div id="container">
-    <div *ngFor="let aluno of alunos">
+    <div *ngFor="let aluno of alunoslocal">
         <div id="card-row">
             <img class="avatar" src="../../assets/avatar.png" width="50" height="50">
             <div class="Divider">
@@ -16,6 +16,9 @@
             <div class="Divider">
                 <p>{{aluno.DataNascimento}}</p>
                 <p>{{aluno.Email}}</p>
+            </div>
+            <div class="DividerButton">
+                <button class="button">Excluir</button>
             </div>
             
         </div>

@@ -2,6 +2,11 @@
 
 $hover: #0756ff;
 $alpha: 0.1;
+$cortexto: #212529;
+$cortextobotao: #fff;
+$corbotao: #2196f3;
+$corbotaohover: #0c7cd5;
+$Corbordainput: #ced4da;
 
 #loading {
     display: flex;
@@ -39,6 +44,7 @@ $alpha: 0.1;
     padding: 10px;
     border-style: solid;
     margin: 2px;
+   
 
     
     
@@ -49,12 +55,11 @@ $alpha: 0.1;
     background-color: rgba($hover, $alpha) ;
 }
 
-.avatar {
-    align-self: flex-start;
-}
+
 .Divider {
     margin-left: 20px;
     align-self: center;
+    justify-content: center;
 }
 
 p { 
@@ -63,22 +68,39 @@ p {
     font-weight: 300;
     font-size: 11pt;
     color: #212529;
+    align-self: flex-start;
 }
 .button {
-    background-color: #f4511e;
+    background-color: $corbotao;
     border: none;
     color: white;
-    padding: 16px 32px;
+    padding: 10px 16px;
     text-align: center;
-    font-size: 16px;
+    font-size: 11pt;
     margin: 4px 2px;
-    opacity: 0.6;
+    opacity: 0.9;
     transition: 0.3s;
-    display: inline-block;
+
     text-decoration: none;
     cursor: pointer;
+
+   
+
+
   }
   
-  .button:hover {opacity: 1}
+  .button:hover {
+    background-color: $corbotaohover;
+    opacity: 1
+
+    }
+
+.DividerButton {
+
+display: flex;
+width: 100%;
+align-items: center;
+justify-content: flex-end;
+}
   
 
