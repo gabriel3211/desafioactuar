@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+$hover: #0756ff;
+$alpha: 0.1;
 
 #loading {
     display: flex;
@@ -10,27 +14,71 @@
 
 #container { 
     margin-top: 20px;
-    width: 100%;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px #424242;
 }
 @keyframes hovercard {
     from {
         background-color: #FFFFFF;
     }
     to {
-        background-color: rgba($color: #0756ff, $alpha: 0.2);
+        background-color: rgba($hover, $alpha);
     }
 }
 #card-row {   
-    border-radius: 5px 5px 5px 5px;
+    
+    display: flex;
+    border-radius: 5px;
     border-color: rgb(76, 36, 221);
     border-width: 1px ;
-    margin: 5px;  
+    padding: 10px;
     border-style: solid;
-    padding: 15px;
+    margin: 2px;
+
+    
+    
 }
 #card-row:hover {
     animation-name: hovercard;
-    animation-duration: 1s;
-    background-color: rgba($color: #0756ff, $alpha: 0.2) ;
+    animation-duration: 0.5s;
+    background-color: rgba($hover, $alpha) ;
 }
+
+.avatar {
+    align-self: flex-start;
+}
+.Divider {
+    margin-left: 20px;
+    align-self: center;
+}
+
+p { 
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 11pt;
+    color: #212529;
+}
+.button {
+    background-color: #f4511e;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .button:hover {opacity: 1}
+  
+

@@ -13,7 +13,7 @@ export class ContainerComponent implements OnInit {
   loading: boolean = true;
   public alunos: Alunos[];
   
-  constructor( private http: ObterAlunosService) { }
+  constructor( protected http: ObterAlunosService) { }
 
  
 
