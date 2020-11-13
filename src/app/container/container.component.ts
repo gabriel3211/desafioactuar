@@ -14,12 +14,24 @@ export class ContainerComponent implements OnInit {
   loading: boolean = true;
   private alunos: Alunos[];
   public alunoslocal: Alunos[];
-  
-  
+
+
+
   constructor( protected http: ObterAlunosService, protected localstorage: LocalStorageService) { }
 
   obterAlunosLocal(){
-    this.alunoslocal = JSON.parse(this.localstorage.get("alunoslocal"))
+    this.alunoslocal = JSON.parse(this.localstorage.get("local"));
+
+  }
+
+  excluirItem(event: { target: { value: number; }; }) { 
+    let index = event.target.value;
+    this.alunoslocal.splice(index, 1);
+    this.localstorage.set("local", JSON.stringify(this.alunoslocal));
+    
+
+    console.log("alunoslocal")
+    console.log(this.alunoslocal);
   }
 
   ngOnInit(): void {  
@@ -27,10 +39,9 @@ export class ContainerComponent implements OnInit {
     this.http.obterAlunos().subscribe(response => {
       
       this.alunos = response;
-      this.localstorage.set("alunoslocal", JSON.stringify(this.alunos))
+      this.localstorage.set("local", JSON.stringify(this.alunos))
       this.obterAlunosLocal();
       this.loading = false;
-      console.log(this.alunoslocal)
     });
     
   }

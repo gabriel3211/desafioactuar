@@ -4,24 +4,29 @@
 </div>
 
 
-
-<div id="container">
-    <div *ngFor="let aluno of alunoslocal">
-        <div id="card-row">
-            <img class="avatar" src="../../assets/avatar.png" width="50" height="50">
-            <div class="Divider">
-                <p>{{aluno.Nome}}</p>
-                <p>{{aluno.Email}}</p>
+<div id="content">
+  
+    
+    <div id="container">
+        <div id="cadastro">
+            <h1>Alunos</h1>
+        </div>
+        <div *ngFor="let aluno of alunoslocal; index as i">
+            <div id="card-row">
+                <img class="avatar" src="../../assets/avatar.png" width="50" height="50">
+                <div class="Divider">
+                    <p>{{aluno.Nome}}</p>
+                    <p>{{aluno.Email}}</p>
+                </div>
+                <div class="Divider">
+                    <p>{{aluno.DataNascimento}}</p>
+                    <p>{{aluno.Email}}</p>
+                </div>
+                <div class="DividerButton">
+                    <button class="button" (click)="alterarItem($event)">Alterar</button>
+                    <button class="button" (click)="excluirItem($event)" value="{{i}}">Excluir</button>               
+                </div>           
             </div>
-            <div class="Divider">
-                <p>{{aluno.DataNascimento}}</p>
-                <p>{{aluno.Email}}</p>
-            </div>
-            <div class="DividerButton">
-                <button class="button">Excluir</button>
-            </div>
-            
         </div>
     </div>
 </div>
-         

@@ -2,6 +2,8 @@
 
 $hover: #0756ff;
 $alpha: 0.1;
+$alphacard-row: 0.2;
+$alphacard-row-hover: 0.1;
 $cortexto: #212529;
 $cortextobotao: #fff;
 $corbotao: #2196f3;
@@ -16,30 +18,36 @@ $Corbordainput: #ced4da;
     justify-content: center;
     align-items: center;
 }
+#content {
+
+    min-width: min-content;
+}
 
 #container { 
     margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    background-color: #FFFFFF;
+    
+ 
+    background-color: rgba($color: whitesmoke, $alpha: 0.5);
     margin: 20px;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 1px 1px 5px 1px #424242;
+    box-shadow: 1px 1px 8px 1px #424242;
+
+
 }
 @keyframes hovercard {
     from {
-        background-color: #FFFFFF;
+        background-color: rgba($color: #ffffff, $alpha: 0.2);
     }
     to {
-        background-color: rgba($hover, $alpha);
+        background-color: rgba($hover, $alphacard-row-hover);
     }
 }
 #card-row {   
-    
+    background-color: rgba($color: #ffffff, $alpha: 0.1);
     display: flex;
     border-radius: 5px;
-    border-color: rgb(76, 36, 221);
+    border-color: $Corbordainput;
     border-width: 1px ;
     padding: 10px;
     border-style: solid;
@@ -52,7 +60,7 @@ $Corbordainput: #ced4da;
 #card-row:hover {
     animation-name: hovercard;
     animation-duration: 0.5s;
-    background-color: rgba($hover, $alpha) ;
+    background-color: rgba($hover, $alphacard-row-hover) ;
 }
 
 
@@ -60,6 +68,7 @@ $Corbordainput: #ced4da;
     margin-left: 20px;
     align-self: center;
     justify-content: center;
+    padding: 10px;
 }
 
 p { 
@@ -77,16 +86,14 @@ p {
     padding: 10px 16px;
     text-align: center;
     font-size: 11pt;
-    margin: 4px 2px;
+    margin: 4px;
     opacity: 0.9;
     transition: 0.3s;
-
+    border-radius: 5px;
     text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     cursor: pointer;
-
-   
-
-
   }
   
   .button:hover {
@@ -101,6 +108,10 @@ display: flex;
 width: 100%;
 align-items: center;
 justify-content: flex-end;
+}
+#cadastro h1{
+    font-family: Roboto;
+    font-weight: 300;
 }
   
 
