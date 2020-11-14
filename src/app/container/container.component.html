@@ -20,12 +20,13 @@
                 </div>                          
             </div>
         <div id="cadastroaluno">
-            <p class="nomeinput">Nome</p><input class="input" type="text" placeholder="Nome" /><p class="nomeinput">Email</p><input class="input" type="text" placeholder="Email" />
-            <p class="nomeinput">Data do Nascimento</p><input class="input" type="text" placeholder="Nome" /> <p class="nomeinput">Sexo</p>
-            <input type="radio" id="Masculino" name="gender" value="masculino">
+            <p class="nomeinput">Nome</p><input class="input" type="text" placeholder="Nome" (input)="inputNome($event)" /><p class="nomeinput">Email</p><input class="input" type="text" placeholder="Email" (input)="inputEmail($event)"/>
+            <p class="nomeinput">Data do Nascimento</p><input class="input" type="text" placeholder="Nascimento" (input)="inputDtNascimento($event)" /> <p class="nomeinput">Sexo</p>
+            <input type="radio" id="Masculino" name="gender" value="Masculino" (click)="radioSexo($event)">
             <label for="male">Masculino</label><br>
-            <input type="radio" id="feminino" name="gender" value="feminino">
+            <input type="radio" id="feminino" name="gender" value="Feminino" (click)="radioSexo($event)">
             <label for="female">Feminino</label><br>
+            <button class="button" (click)="salvar()">Salvar</button>
         </div> 
         </div>        
         <div *ngIf="divalunos"> 

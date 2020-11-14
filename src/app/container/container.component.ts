@@ -16,7 +16,10 @@ export class ContainerComponent implements OnInit {
   divcadastro: boolean = true;
   private alunos: Alunos[];
   public alunoslocal: Alunos[];
-  public nome: String;
+  public nome: string;
+  public email: string;
+  public dtnascimento: string;
+  public sexo: string;
 
 
 
@@ -37,6 +40,29 @@ export class ContainerComponent implements OnInit {
     let index = event.target.value;
     this.alunoslocal.splice(index, 1);
     this.localstorage.set("local", JSON.stringify(this.alunoslocal));
+  }
+  inputNome(event: { target: { value: string; }; }){
+    this.nome = event.target.value;
+  }
+  inputEmail(event: { target: { value: string; }; }){
+    this.email = event.target.value;
+  }
+  inputDtNascimento(event: { target: { value: string; }; }){
+    this.dtnascimento = event.target.value;
+  }
+  radioSexo(event: { target: { value: string; }; }){
+    this.sexo = event.target.value;
+  }
+  salvar(){
+    this.alunoslocal.push({
+    Nome: this.nome,
+    Email: this.email,
+    DataNascimento: this.dtnascimento,
+    Sexo: this.sexo
+    });
+    this.localstorage.set("local", JSON.stringify(this.alunoslocal));
+    this.obterAlunosLocal();
+    this.voltar();
   }
 
   ngOnInit(): void {  
