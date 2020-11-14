@@ -16,22 +16,25 @@
                     </svg>
                 </button>
                 <div>
-                    <h1 class="title">Cadastrar novo Aluno(a)</h1>
+                    <h1 class="title">{{titulo}}</h1>
                 </div>                          
             </div>
         <div id="cadastroaluno">
-            <p class="nomeinput">Nome</p><input class="input" type="text" placeholder="Nome" (input)="inputNome($event)" /><p class="nomeinput">Email</p><input class="input" type="text" placeholder="Email" (input)="inputEmail($event)"/>
-            <p class="nomeinput">Data do Nascimento</p><input class="input" type="text" placeholder="Nascimento" (input)="inputDtNascimento($event)" /> <p class="nomeinput">Sexo</p>
-            <input type="radio" id="Masculino" name="gender" value="Masculino" (click)="radioSexo($event)">
+            <p class="nomeinput">Nome</p><input class="input" type="text" placeholder="Nome" (input)="inputNome($event)" value="{{nome}}" />
+            <p class="nomeinput">Email</p><input class="input" type="text" placeholder="Email" (input)="inputEmail($event)" value="{{email}}"/>
+            <p class="nomeinput">Data do Nascimento</p><input class="input" type="text" placeholder="Nascimento" (input)="inputDtNascimento($event)" value="{{dtnascimento}}" /> 
+            <p class="nomeinput">Sexo</p>
+            <input type="radio" id="Masculino" name="gender" value="Masculino" (click)="radioSexo($event)" [checked]="checkmasculino">
             <label for="male">Masculino</label><br>
-            <input type="radio" id="feminino" name="gender" value="Feminino" (click)="radioSexo($event)">
+            <input type="radio" id="feminino" name="gender" value="Feminino" (click)="radioSexo($event)" [checked]="checkfeminino">
             <label for="female">Feminino</label><br>
-            <button class="button" (click)="salvar()">Salvar</button>
+            <button *ngIf="cadastrar" class="button" (click)="salvar()">Salvar</button>
+            <button *ngIf="alterarbtn" class="button" (click)="alterar()">Alterar</button>
         </div> 
         </div>        
         <div *ngIf="divalunos"> 
             <div id="alunos">
-                <h1 class="title">Alunos</h1>
+                <h1 class="title">Alunos</h1><button class="button" (click)="adicionarItem()">+ Aluno</button>
             </div>    
             <div *ngFor="let aluno of alunoslocal; index as i">
                 <div id="card-row">
@@ -45,7 +48,7 @@
                         <p>{{aluno.Sexo}}</p>
                     </div>
                     <div class="DividerButton">
-                        <button class="button" (click)="alterarItem($event)">Alterar</button>
+                        <button class="button" (click)="alterarItem($event)" value="{{i}}">Alterar</button>
                         <button class="button" (click)="excluirItem($event)" value="{{i}}">Excluir</button>               
                     </div>           
                 </div>
