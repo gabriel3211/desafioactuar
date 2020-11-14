@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+$hover: #0756ff;
+$alpha: 0.1;
+$alphacard-row: 0.2;
+$alphacard-row-hover: 0.1;
+$cortexto: #212529;
+$cortextobotao: #fff;
+$corbotao: #2196f3;
+$corbotaohover: #0c7cd5;
+$Corbordainput: #ced4da;
+
+#loading {
+    display: flex;
+    flex: 0 1 auto;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+#content {
+
+    min-width: min-content;
+}
+
+#container { 
+    margin-top: 20px;
+    
+ 
+    background-color: rgba($color: whitesmoke, $alpha: 0.5);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 8px 1px #424242;
+
+
+}
+@keyframes hovercard {
+    from {
+        background-color: rgba($color: #ffffff, $alpha: 0.2);
+    }
+    to {
+        background-color: rgba($hover, $alphacard-row-hover);
+    }
+}
+#card-row {   
+    background-color: rgba($color: #ffffff, $alpha: 0.1);
+    display: flex;
+    border-radius: 5px;
+    border-color: $Corbordainput;
+    border-width: 1px ;
+    padding: 10px;
+    border-style: solid;
+    margin: 2px;
+   
+
+    
+    
+}
+#card-row:hover {
+    animation-name: hovercard;
+    animation-duration: 0.5s;
+    background-color: rgba($hover, $alphacard-row-hover) ;
+}
+
+
+.Divider {
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: center;
+    padding: 10px;
+    min-width: 100px;
+}
+
+p { 
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 11pt;
+    color: #212529;
+
+
+}
+.button {
+    background-color: $corbotao;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 11pt;
+    margin: 4px;
+    opacity: 0.9;
+    transition: 0.3s;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: $corbotaohover;
+    opacity: 1
+
+    }
+
+.DividerButton {
+
+display: flex;
+width: 100%;
+align-items: center;
+justify-content: flex-end;
+}
+.title {
+    font-family: Roboto;
+    font-weight: 300;
+    justify-content: center;
+}
+
+#alunos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-right: 12px
+
+}
+.dividertitle{
+    margin-left: 10px;
+}
+
+#cadastrotitle {
+    display:flex;
+}
+#voltar{
+width: 40px;
+height: 40px;
+border: none;
+background: none;
+cursor: pointer;
+outline: none;
+&:hover {
+svg {
+      transform: scale(1.2);
+    }
+}
+}
+#cadastroaluno{
+    margin: 30px;
+}
+.input {
+    border-radius: 5px;
+    border-color: $Corbordainput;
+    margin: 5px;
+    min-width: 300px;
+    max-width: 500px;
+    max-height: 40px;
+}
+.nomeinput {
+    margin-left: 5px;
+    position: relative;
+ 
+}
+
+

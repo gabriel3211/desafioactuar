@@ -1,0 +1,58 @@
+
+<div *ngIf="loading" id="loading">
+    <mat-spinner></mat-spinner>
+</div>
+
+
+<div id="content">
+  
+    
+    <div id="container">
+        <div *ngIf="divcadastro" id="cadastro">
+            <div id="cadastrotitle">
+                <button id="voltar" (click)="voltar()">
+                    <svg width="24" height="30" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                        <path d="M20 .755l-14.374 11.245 14.374 11.219-.619.781-15.381-12 15.391-12 .609.755z"/>
+                    </svg>
+                </button>
+                <div>
+                    <h1 class="title">{{titulo}}</h1>
+                </div>                          
+            </div>
+        <div id="cadastroaluno">
+            <p class="nomeinput">Nome</p><input class="input" type="text" placeholder="Nome" (input)="inputNome($event)" value="{{nome}}" />
+            <p class="nomeinput">Email</p><input class="input" type="text" placeholder="Email" (input)="inputEmail($event)" value="{{email}}"/>
+            <p class="nomeinput">Data do Nascimento</p><input class="input" type="text" placeholder="Nascimento" (input)="inputDtNascimento($event)" value="{{dtnascimento}}" /> 
+            <p class="nomeinput">Sexo</p>
+            <input type="radio" id="Masculino" name="gender" value="Masculino" (click)="radioSexo($event)" [checked]="checkmasculino">
+            <label for="male">Masculino</label><br>
+            <input type="radio" id="feminino" name="gender" value="Feminino" (click)="radioSexo($event)" [checked]="checkfeminino">
+            <label for="female">Feminino</label><br>
+            <button *ngIf="cadastrar" class="button" (click)="salvar()">Salvar</button>
+            <button *ngIf="alterarbtn" class="button" (click)="alterar()">Alterar</button>
+        </div> 
+        </div>        
+        <div *ngIf="divalunos"> 
+            <div id="alunos">
+                <h1 class="title">Alunos</h1><button class="button" (click)="adicionarItem()">+ Aluno</button>
+            </div>    
+            <div *ngFor="let aluno of alunoslocal; index as i">
+                <div id="card-row">
+                    <img class="avatar" src="../../assets/avatar.png" width="50" height="50">
+                    <div class="Divider">
+                        <p>{{aluno.Nome}}</p>
+                        <p>{{aluno.Email}}</p>
+                    </div>
+                    <div class="Divider">
+                        <p>{{aluno.DataNascimento}}</p>
+                        <p>{{aluno.Sexo}}</p>
+                    </div>
+                    <div class="DividerButton">
+                        <button class="button" (click)="alterarItem($event)" value="{{i}}">Alterar</button>
+                        <button class="button" (click)="excluirItem($event)" value="{{i}}">Excluir</button>               
+                    </div>           
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
