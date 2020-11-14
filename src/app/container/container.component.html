@@ -8,25 +8,47 @@
   
     
     <div id="container">
-        <div id="cadastro">
-            <h1>Alunos</h1>
-        </div>
-        <div *ngFor="let aluno of alunoslocal; index as i">
-            <div id="card-row">
-                <img class="avatar" src="../../assets/avatar.png" width="50" height="50">
-                <div class="Divider">
-                    <p>{{aluno.Nome}}</p>
-                    <p>{{aluno.Email}}</p>
-                </div>
-                <div class="Divider">
-                    <p>{{aluno.DataNascimento}}</p>
-                    <p>{{aluno.Email}}</p>
-                </div>
-                <div class="DividerButton">
-                    <button class="button" (click)="alterarItem($event)">Alterar</button>
-                    <button class="button" (click)="excluirItem($event)" value="{{i}}">Excluir</button>               
-                </div>           
+        <div *ngIf="divcadastro" id="cadastro">
+            <div id="cadastrotitle">
+                <button id="voltar" (click)="voltar()">
+                    <svg width="24" height="30" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                        <path d="M20 .755l-14.374 11.245 14.374 11.219-.619.781-15.381-12 15.391-12 .609.755z"/>
+                    </svg>
+                </button>
+                <div>
+                    <h1 class="title">Cadastrar novo Aluno(a)</h1>
+                </div>                          
             </div>
+        <div id="cadastroaluno">
+            <p class="nomeinput">Nome</p><input class="input" type="text" placeholder="Nome" /><p class="nomeinput">Email</p><input class="input" type="text" placeholder="Email" />
+            <p class="nomeinput">Data do Nascimento</p><input class="input" type="text" placeholder="Nome" /> <p class="nomeinput">Sexo</p>
+            <input type="radio" id="Masculino" name="gender" value="masculino">
+            <label for="male">Masculino</label><br>
+            <input type="radio" id="feminino" name="gender" value="feminino">
+            <label for="female">Feminino</label><br>
+        </div> 
+        </div>        
+        <div *ngIf="divalunos"> 
+            <div id="alunos">
+                <h1 class="title">Alunos</h1>
+            </div>    
+            <div *ngFor="let aluno of alunoslocal; index as i">
+                <div id="card-row">
+                    <img class="avatar" src="../../assets/avatar.png" width="50" height="50">
+                    <div class="Divider">
+                        <p>{{aluno.Nome}}</p>
+                        <p>{{aluno.Email}}</p>
+                    </div>
+                    <div class="Divider">
+                        <p>{{aluno.DataNascimento}}</p>
+                        <p>{{aluno.Sexo}}</p>
+                    </div>
+                    <div class="DividerButton">
+                        <button class="button" (click)="alterarItem($event)">Alterar</button>
+                        <button class="button" (click)="excluirItem($event)" value="{{i}}">Excluir</button>               
+                    </div>           
+                </div>
+            </div> 
         </div>
     </div>
 </div>

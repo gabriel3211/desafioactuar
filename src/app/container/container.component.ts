@@ -12,8 +12,11 @@ export class ContainerComponent implements OnInit {
   
   
   loading: boolean = true;
+  divalunos: boolean = false;
+  divcadastro: boolean = true;
   private alunos: Alunos[];
   public alunoslocal: Alunos[];
+  public nome: String;
 
 
 
@@ -23,21 +26,22 @@ export class ContainerComponent implements OnInit {
     this.alunoslocal = JSON.parse(this.localstorage.get("local"));
 
   }
-
+  voltar(){
+    if(this.divcadastro){
+      this.divalunos = true;
+      this.divcadastro = false;
+    }
+ 
+  }
   excluirItem(event: { target: { value: number; }; }) { 
     let index = event.target.value;
     this.alunoslocal.splice(index, 1);
     this.localstorage.set("local", JSON.stringify(this.alunoslocal));
-    
-
-    console.log("alunoslocal")
-    console.log(this.alunoslocal);
   }
 
   ngOnInit(): void {  
 
-    this.http.obterAlunos().subscribe(response => {
-      
+    this.http.obterAlunos().subscribe(response => {     
       this.alunos = response;
       this.localstorage.set("local", JSON.stringify(this.alunos))
       this.obterAlunosLocal();

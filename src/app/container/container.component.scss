@@ -66,9 +66,10 @@ $Corbordainput: #ced4da;
 
 .Divider {
     margin-left: 20px;
-    align-self: center;
+    margin-right: 20px;
     justify-content: center;
     padding: 10px;
+    min-width: 100px;
 }
 
 p { 
@@ -77,7 +78,8 @@ p {
     font-weight: 300;
     font-size: 11pt;
     color: #212529;
-    align-self: flex-start;
+
+
 }
 .button {
     background-color: $corbotao;
@@ -109,9 +111,47 @@ width: 100%;
 align-items: center;
 justify-content: flex-end;
 }
-#cadastro h1{
+.title {
     font-family: Roboto;
     font-weight: 300;
+    justify-content: center;
 }
-  
+
+.dividertitle{
+    margin-left: 10px;
+}
+
+#cadastrotitle {
+    display:flex;
+}
+#voltar{
+width: 40px;
+height: 40px;
+border: none;
+background: none;
+cursor: pointer;
+outline: none;
+&:hover {
+svg {
+      transform: scale(1.2);
+    }
+}
+}
+#cadastroaluno{
+    margin: 30px;
+}
+.input {
+    border-radius: 5px;
+    border-color: $Corbordainput;
+    margin: 5px;
+    min-width: 300px;
+    max-width: 500px;
+    max-height: 40px;
+}
+.nomeinput {
+    margin-left: 5px;
+    position: relative;
+ 
+}
+
 
